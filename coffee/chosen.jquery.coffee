@@ -337,6 +337,7 @@ class Chosen extends AbstractChosen
     this.results_hide() if @active_field
 
   results_reset_cleanup: ->
+    @allow_single_deselect = if @options.allow_single_deselect? and @form_field.options[0]? and @form_field.options[0].text is "" then @options.allow_single_deselect else false
     @current_selectedIndex = @form_field.selectedIndex
     @selected_item.find("abbr").remove()
 
